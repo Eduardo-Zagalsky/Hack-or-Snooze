@@ -216,15 +216,15 @@ class User {
    * -story: a Story instance to add to favorites
    */
   async addFavorite(story) {
-    this.favorites.push(story);
     await this._addOrRemoveFavorite("add", story);
+    this.favorites.push(story);
   }
   /** Remove a story to the list of user favorites
    * - story: the Story instance to remove from favorites
    */
   async removeFavorite(story) {
-    this.favorites = this.favorites.filter(s => s.storyId !== story.storyId);
     await this._addOrRemoveFavorite("remove", story);
+    this.favorites = this.favorites.filter(s => s.storyId !== story.storyId);
   }
   /**
    * FIX IT
